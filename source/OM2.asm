@@ -3830,9 +3830,12 @@
 .data:00001c06 3c                               inc a
 .data:00001c07 20 fb                            jr nz,0x1c04
 .data:00001c09 c9                               ret
+
+; This subroutine is called during setup/startup
+
 .data:00001c0a 21 e0 65                         ld hl,0x65e0
 .data:00001c0d 36 2b                            ld (hl),0x2b
-.data:00001c0f 21 00 30                         ld hl,0x3000
+.data:00001c0f 21 00 30                         ld hl,0x3000 ; The MIDI port, I think
 .data:00001c12 36 17                            ld (hl),0x17
 .data:00001c14 06 0b                            ld b,0x0b
 .data:00001c16 af                               xor a
@@ -3843,6 +3846,9 @@
 .data:00001c1e 21 00 30                         ld hl,0x3000
 .data:00001c21 36 95                            ld (hl),0x95
 .data:00001c23 c9                               ret
+
+;
+
 .data:00001c24 f5                               push af
 .data:00001c25 e5                               push hl
 .data:00001c26 3a 01 30                         ld a,(0x3001)
